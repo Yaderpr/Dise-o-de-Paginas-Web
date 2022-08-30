@@ -1,6 +1,8 @@
-nav {
-    display: inline-block;
-}
 img {
+    width: 600px;
+    height: 400px;
     display: block;
+}
+nav, header {
+    padding-left: 40px;;
 }
