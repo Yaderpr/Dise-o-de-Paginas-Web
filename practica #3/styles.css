@@ -15,14 +15,30 @@ nav {
     height: 30px;
     background-color: #aadf87;
 }
+.articulo {
+    display: flex;
+    width: 90%;
+    height: 80%;
+    margin-left: 5%;
+    align-items: start;
+    background-color: #d6f1c9;
+}
 .articulo img {
     display: inline-block;
-    width: 150px;
-    height: 130px;
+    padding: 15px;
+    background-color: #eaf2cb;
+    width: 33%;
+    height: 100%;
 }
 .articulo p {
     display: inline-block;
+    width: auto;
+    padding: 15px;
+    height: 86%;
     background-color: #dcf2d1;
+}
+section > p {
+    margin: 7px 4%;
 }
 a {
     margin-top: 9px;
@@ -44,31 +60,50 @@ main {
     margin-left: 6%;
     height: 1000px;
 }
-main .articulos {
+div.articulos {
     display: inline-block;
     margin: 5px;
     width: 70%;
     height: 900px;
 }
-main .lados {
-    display: inline-block;
+div.lados {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
     margin-left: 2%;
-    border-radius: 10px;
-    width: 25%;
+    border-radius: 17px;
+    width: 17%;
+    background-color: #f5f5dd;
     height: 1100px;
-    border: black 2px solid;
+    border: #af908a 2px solid;
 }
-section {
+div.articulos section {
     display: block;
     width: 100%;
     border-radius: 15px;
     margin-bottom: 20px;
     height: 250px;
-    border: black 2px solid;
+    border: gray 1px solid;
 }
 .lados aside {
-    height: 25%;
-    background-color: #f5f5dd;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    height: 100%;
+}
+aside p:nth-child(1) {
+    margin-top: 10px;
+}
+aside p:nth-child(2) {
+    align-self: flex-start;
+    line-height: 24px;
+    margin: 5px 0 5px 15px;
+}
+aside p:nth-child(4) {
+    line-height: 16px;
+    align-self: center;
+    margin: 5px 0px 5px 15px;
 }
 #perfil {
     width: 100px;
@@ -79,9 +114,17 @@ section {
     height: 500px;
 }
 textarea {
-    border: 1px solid;
-    border-radius: 12px;
+    width: 100%;
+    border: #af908a 1.5px double;
+    border-radius: 8px;
 }
 button {
-    display: block;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    border:#af908a 0.5px double;
+}
+div.lados a {
+    align-self: flex-start;
+    margin-left: 20px;
+    width: auto;
 }
