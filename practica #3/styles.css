@@ -17,9 +17,9 @@ nav {
 }
 .articulo {
     display: flex;
-    width: 90%;
+    width: 95%;
     height: 80%;
-    margin-left: 5%;
+    margin-left: 3%;
     align-items: start;
     background-color: #d6f1c9;
 }
@@ -33,7 +33,7 @@ nav {
 .articulo p {
     display: inline-block;
     font-family: Courier New;
-    font-size: small;
+    font-size: 74%;
     width: auto;
     padding: 15px;
     height: 86%;
