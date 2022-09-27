@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+div.contenedor {
+    position: relative;
+    height: 500px;
+    width: 25%;
+}
+div.contenedor img {
+    position: relative;
+    width: auto;
+    height: 25vh;
+}
+#madrid {
+    top: 10vh;
+    left: 100px;
+}
+#barca {
+    top: 20vh;
+    left: 170px;
+}
+div.formulario {
+    position: relative;
+}
+div.formulario > img {
+    height: 200px;
+    position: absolute;
+    left: 18%;
+    bottom: 20%;
+}
+form * {
+    display: block;
+    margin-bottom: 5px;
+}
+form * {
+    margin-left: 20%;
+}
+form button {
+    margin-left: 38%;
+}
+div.contenedor_f {
+    height: 100vh;
+    padding-top: 20vh;
+}
+div.contenedor_f img {
+    display: float;
+    width: auto;
+    height: 25vh;
+}
+#bayern_f {
+    float: none;
+    margin-left: 25vw;
+}
+#madrid_f {
+    float: left;
+}
+#barca_f {
+    float: right;
+}
+div.visibilidad {
+    background-color: aliceblue;
+    height: 200px;
+    border: solid 1px;
+}
+div.visibilidad div {
+    width: 24%;
+    height: 100%;
+    display: inline-block;
+}
+.caja1 {
+    background-color: red;
+    border: solid 1px;
+}
+.caja2 {
+    background-color: yellow;
+    border: solid 1px;
+}
+.caja3 {
+    visibility: hidden;
+    background-color: yellowgreen;
+    border: solid 1px;
+}
+.caja4 {
+    background-color: blue;
+    border: solid 1px;
+}
+div.display {
+    background-color: rgb(46, 231, 216);
+    height: 200px;
+    border: solid 1px;
+}
+div.display div {
+    width: 24%;
+    height: 100%;
+}
+.caja8 {
+    display: inline-block;
+    background-color: red;
+    border: solid 1px;
+}
+.caja7 {
+    display: inline-block;
+    background-color: yellow;
+    border: solid 1px;
+}
+.caja6 {
+    display: none;
+    background-color: yellowgreen;
+    border: solid 1px;
+}
+.caja5 {
+    display: inline-block;
+    background-color: blue;
+    border: solid 1px;
+}
+div.over {
+    background-color: rgb(80, 151, 80);
+    height: 100px;
+    width: 100px;
+    border: solid 1px;
+    overflow: hidden;
+}
+div.index {
+    position: relative;
+    height: 100px;
+}
+div.index div {
+    position: absolute;
+    width: 24%;
+    height: 50%;
+    border: solid 1px;
+}
+.caja9 {
+    top: 10%;
+   left: 10%;
+   background-color: tomato;
+   z-index: 0;
+}
+.caja10 {
+    top: 45%;
+    left: 30%;
+    background-color: blueviolet;
+    z-index: 1;
+}
+.caja11 {
+    top: 75%;
+    left: 50%;
+    background-color: cornflowerblue;
+}
