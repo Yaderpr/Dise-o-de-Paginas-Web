@@ -1,0 +1,15 @@
+.row {
+    margin: 1%;
+}
+.row1 {
+    background-color: gray;
+}
+.row2 {
+    height: 30rem;
+}
+.row p {
+    text-align: center;
+}
+.col1, .col2, .col3 {
+    background-color: gray;
+}
