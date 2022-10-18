@@ -1,0 +1,36 @@
+.container {
+    background-color: #9b9595;
+    width: 100vw;
+    height: 100vh;
+}
+.boton {
+    display: block;
+    width: 150px;
+    height: 25px;
+    text-decoration: none;
+    background-color: #9b9595;
+    border-radius: 6px;
+}
+.boton > p {
+    padding: 2%;
+    text-align: center;
+}
+.caja {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    background-color: #fff;
+    width: 90%;
+    flex-wrap: wrap;
+    height: 15%;
+    margin-left: 5%;
+    margin-top: 2%;
+    border-radius: 10px 10px 10px 6px;
+    box-shadow: 5px 10px 5px rgb(0, 0, 0);
+}
+.caja > p {
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+}
