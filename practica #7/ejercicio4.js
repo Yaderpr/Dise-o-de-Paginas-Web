@@ -2,7 +2,7 @@
 // si trabaja 40 horas o menos se le paga 20 por hora si trabaja mas de 40
 // se le pagara 20 por cada una de las primeras 40 y 25 por cada hora
 //  extra.
-let horas = prompt("Ingrese el numero de camisetas que compro: ");
+let horas = prompt("Ingrese sus horas de trabajo: ");
 let horasExt = 0;
 if(parseInt(horas) > 40) {
     horasExt = parseInt(horas) - 40;
@@ -12,6 +12,8 @@ if(parseInt(horas) > 40) {
     salario = parseInt(horas) * 20;
 }
 let regExp = "^[0-9]+$";
-if(camiseta.match(regExp) != null) {
-    alert("Su salario es " + )
+if(horas.match(regExp) != null) {
+    alert("Su salario es " + salario);
+} else {
+    alert("caracter incorrecto");
 }

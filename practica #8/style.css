@@ -1,0 +1,111 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    width: 26%;
+    height: 75%;
+    border: 1px solid gray;
+    border-radius: 2%;
+}
+form {
+    height: 67%;
+    width: auto;
+    margin: 5%;
+}
+form label {
+    display: block;
+    font-family: Poppins, sans-serif;
+    margin-top: 5%;
+}
+#egresado {
+    display: inline-block;
+    margin-top: 10%;
+    margin-right: 2%;
+}
+#name, #apellido, #carreras {
+    width: 100%;
+    height: 10%;
+    padding: 1%;
+    border: 0.1px solid gray;
+    border-radius: 5%;
+    background-color: lavender;
+}
+#fsexo, #msexo {
+    display: inline-block;
+    margin-right: 2%;
+}
+#fsexo {
+    margin-top: 5%;
+}
+p {
+    display: inline-block;
+    font-family: Poppins, sans-serif;
+}
+div.botones {
+    height: 7%;
+    width: auto;
+    margin: 5% 5%;
+}
+#hr1 {
+    margin: 0 5%;
+}
+#nuevo {
+    background-color: dodgerblue;
+    width: 3rem;
+}
+#guardar {
+    background-color: seagreen;
+    width: 4em;
+}
+#cancelar {
+    background-color: lightseagreen;
+    width: 4.5em;
+}
+#eliminar {
+    background-color: crimson;
+    width: 4.5em;
+}
+.btn {
+    font-family: Poppins, sans-serif;
+    display: inline-block;
+    height: 100%;
+    margin-right: 1%;
+    color: white;
+    border: 0;
+    border-radius: 10%;
+}
+div#pie {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 10.8%;
+    margin-left: 5%;
+    width: 45%;
+}
+.btn1 {
+    height: 60%;
+    width: 18%;
+    border: 0;
+    color: white;
+    border-radius: 10%;
+    background-color: slategray;
+}
+.btn2 {
+    height: 60%;
+    width: 24%;
+    border: 0;
+    color: white;
+    border-radius: 10%;
+    background-color: darkslategray;
+}

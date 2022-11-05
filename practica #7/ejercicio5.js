@@ -3,7 +3,6 @@
 let n, count, suma = 0;
 count = 0;
 while(count != 5) {
-    count++;
     n = prompt("Ingrese un numero entero positivo");
     n = parseInt(n);
     if(n > 0) {
@@ -14,3 +13,4 @@ while(count != 5) {
     }
 
 }
+alert("La suma es de los primeros 5 enteros postivos es " + suma);
