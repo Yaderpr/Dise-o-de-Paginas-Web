@@ -1,12 +1,42 @@
 const arregloGlobal = [];
 let indiceActual = 0;
-let i = 0;
 function nuevo() {
     let elementos = document.formulario;
     for(let i = 0; i < elementos.length; i++) {
         elementos[i].disabled = false;
     }
+    if(!camposVacios(document.formulario)) {
+        indiceActual++;
+    } else {
+        alert("Guarde los datos!");
+    }
+    limpiar();
+}
+function eliminar() {
+    let i = indiceActual;
+    if(indiceActual > 0) {
+        if(document.formulario[0].disabled == true) {
+            arregloGlobal.splice(i, 1);
+        }
+        indiceActual--;
+    } else {
+        if(document.formulario[0].disabled == true) {
+            arregloGlobal.splice(i, 1);
+        }
+        indiceActual = 0;
+        nuevo();
+    }
     cancelar();
+}
+function limpiar() {
+    let elementos = document.formulario;
+    for(let i = 0; i < 2; i++) {
+        elementos[i].value = "";
+    }
+    elementos[2].selectedIndex = 0;
+    for(let i = 3; i < 6; i++) {
+        elementos[i].checked = false;
+    }
 }
 function bloquear() {
     let elementos = document.formulario;
@@ -15,33 +45,110 @@ function bloquear() {
     }
 }
 function guardar() {
+    let temp = [];
+    let elementos = document.formulario;
     if(datosCorrectos(document.formulario)) {
-        arregloGlobal[i] = document.formulario;
+        for(let i = 0; i < 2; i++) {
+            temp[i] = elementos[i].value;
+        }
+        temp[2] = elementos[2].selectedIndex;
+        for(let i = 3; i < 6; i++) {
+            temp[i] = elementos[i].checked;
+        }
+
+        temp.forEach(data => console.log(data));
+        arregloGlobal.push(temp);
         bloquear();
-        i++;
     } else {
         alert("Datos incompletos!");
     }
 }
 function inicio() {
-    let primero = arregloGlobal[0];
-    let mostrar = document.formulario;
+    let i = 0, elementos = document.formulario;
+    for(let j = 0; j < 2; j++) {
+        elementos[j].value = arregloGlobal[i][j];
+    }
+    elementos[2].selectedIndex = arregloGlobal[i][2];
+    for(let j = 3; j < 6; j++) {
+        elementos[j].checked = arregloGlobal[i][j];
+    }
+    indiceActual = i;
+    bloquear();
+}
+function fin() {
+    let i = arregloGlobal.length-1, elementos = document.formulario;
+    for(let j = 0; j < 2; j++) {
+        elementos[j].value = arregloGlobal[i][j];
+    }
+    elementos[2].selectedIndex = arregloGlobal[i][2];
+    for(let j = 3; j < 6; j++) {
+        elementos[j].checked = arregloGlobal[i][j];
+    }
+    indiceActual = i;
+    bloquear();
 }
 function atras() {
-    let len = arregloGlobal.length;
-    for(let i = 0; i < len; i++) {
-        alert(arregloGlobal[i][0].value);
+    if(indiceActual > 0) {
+        if(arregloGlobal.length == 1) {
+            indiceActual = 1;
+        }
+        let i = indiceActual-1, elementos = document.formulario;
+        for(let j = 0; j < 2; j++) {
+            elementos[j].value = arregloGlobal[i][j];
+        }
+        elementos[2].selectedIndex = arregloGlobal[i][2];
+        for(let j = 3; j < 6; j++) {
+            elementos[j].checked = arregloGlobal[i][j];
+        }
+        indiceActual--;
+    } else {
+        alert("No hay elementos atras!");
     }
+
+    bloquear();
+
+}
+function sig() {
+    if(indiceActual < arregloGlobal.length-1) {
+        let i = indiceActual+1, elementos = document.formulario;
+        for(let j = 0; j < 2; j++) {
+            elementos[j].value = arregloGlobal[i][j];
+        }
+        elementos[2].selectedIndex = arregloGlobal[i][2];
+        for(let j = 3; j < 6; j++) {
+            elementos[j].checked = arregloGlobal[i][j];
+        }
+        indiceActual++;
+    } else {
+        alert("No hay elementos adelante!");
+    }
+
+    bloquear();
 }
 function cancelar() {
+    fin();
+    bloquear();
+}
+function camposVacios(formulario) {
     let elementos = document.formulario;
+    let count, bool = false;
     for(let i = 0; i < 2; i++) {
-        elementos[i].value = "";
+        if(elementos[i].value.length == 0) {
+            count++;
+        }
     }
-    elementos[2].selectedIndex = 0;
-    elementos[3].checked = false;
-    elementos[4].checked = false;
-    elementos[5].checked = false;
+    if(elementos[2].selectedIndex == 0) {
+        count++;
+    }
+    for(let i = 3; i < 5; i++) {
+        if(elementos[i].checked == false) {
+            count++;
+        }
+    }
+    if(count == 0) {
+        bool = true;
+    }
+    return bool;
 }
 function datosCorrectos(formulario) {
     let bool = true;
