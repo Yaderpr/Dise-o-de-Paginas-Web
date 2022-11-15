@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="botones">
+            <input type="button" value="Nuevo" id="nuevo" class="btn"  onclick="nuevo()">
+            <input type="button" value="Guardar" id="guardar" class="btn" onclick="guardar()">
+            <input type="button" value="Cancelar" id="cancelar" class="btn" onclick="cancelar()">
+            <input type="button" value="Eliminar" id="eliminar" class="btn" onclick="eliminar()">
+        </div>
+        <div class="busqueda">
+            <input type="search" name="busqueda" placeholder="Filter..." id="buscar">
+            <button type="submit" onclick="filtrar()"><i class="fa fa-search"></i></button>
+        </div>
+        <hr id="hr1">
+        <form action="" name="formulario">
+            <label for="name">Nombre:</label>
+            <input type="text" name="name" id="name" disabled="disabled">
+            <label for="apellido">Apellido:</label>
+            <input type="text" name="apellido" id="apellido" disabled="disabled">
+            <label for="carreras">Carrera</label>
+            <select name="carreras" id="carreras" disabled="disabled">
+                <option value="0" selected>Seleccione</option>
+                <option value="1">Ingenieria en sistemas</option>
+                <option value="2">Ingenieria telematica</option>
+                <option value="3">Medicina</option>
+                <option value="4">Quimica</option>
+            </select>
+            <label for="sexo">Sexo: </label>
+            <input type="radio" name="sexo" id="fsexo" value="1" disabled="disabled"><p>Femenino</p><br>
+            <input type="radio" name="sexo" id="msexo" value="2" disabled="disabled"><p>Masculino</p><br>
+            <input type="checkbox" name="egresado" id="egresado" value="1" disabled="disabled"><p>¿Egresado?</p>
+        </form>
+        <hr id="hr2">
+        <div id="pie">
+            <input type="button" value="<<" id="inicio" class="btn2" onclick="inicio()">
+            <input type="button" value="<" id="atras" class="btn1" onclick="atras()">
+            <input type="button" value=">" id="adelante" class="btn1" onclick="sig()">
+            <input type="button" value=">>" id="fin" class="btn2" onclick="fin()">
+        </div>
+        <script src="main.js"></script>
+    </div>
+</body>
+</html>
