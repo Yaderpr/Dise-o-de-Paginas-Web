@@ -2,7 +2,7 @@
 // Implementar la funcionalidad de búsqueda o filtrado de los datos, de modo que,
 //  si el usuario ingresa un valor en el campo "Filter...", se busque en la colección de objetos JSON aquellos registros que coincidan con el valor introducido (éste puede ser un nombre, apellido o carrera).Si existe una o más coincidencias, el usuario podrá recorrer los registros coincidentes. Si no existe ninguna coincidencia,
 // se deberá mostrar el mensaje: "No se encontraron registros que coincidan con el valor de búsqueda".
-const arregloGlobal = [];
+let subArreglo = [];
 let indiceActual = 0;
 let arregloJSON = [];
 console.log(arregloJSON)
@@ -61,6 +61,7 @@ function guardar() {
         temp.rdb2 = elementos[4].checked;
         temp.chb = elementos[5].checked; 
         arregloJSON.push(JSON.stringify(temp));
+        subArreglo = [...arregloJSON];
         arregloJSON.forEach(data => console.log(data));
         bloquear();
     } else {
@@ -69,41 +70,41 @@ function guardar() {
 }
 function inicio() {
     let i = 0, elementos = document.formulario;
-    Obj = JSON.parse(arregloJSON[i]);
+    Obj = JSON.parse(subArreglo[i]);
     elementos[0].value = Obj.name;
     elementos[1].value = Obj.apellido;
-    elementos[2].value = Obj.seleccion;
-    elementos[3].value = Obj.rdb1;
-    elementos[4].value = Obj.rdb2;
-    elementos[5].value = Obj.chb;
+    elementos[2].selectedIndex = Obj.seleccion;
+    elementos[3].checked = Obj.rdb1;
+    elementos[4].checked = Obj.rdb2;
+    elementos[5].checked = Obj.chb;
     indiceActual = i;
     bloquear();
 }
 function fin() {
-    let i = arregloJSON.length-1, elementos = document.formulario;
-    Obj = JSON.parse(arregloJSON[i]);
+    let i = subArreglo.length-1, elementos = document.formulario;
+    Obj = JSON.parse(subArreglo[i]);
     elementos[0].value = Obj.name;
     elementos[1].value = Obj.apellido;
-    elementos[2].value = Obj.seleccion;
-    elementos[3].value = Obj.rdb1;
-    elementos[4].value = Obj.rdb2;
-    elementos[5].value = Obj.chb;
+    elementos[2].selectedIndex = Obj.seleccion;
+    elementos[3].checked = Obj.rdb1;
+    elementos[4].checked = Obj.rdb2;
+    elementos[5].checked = Obj.chb;
     indiceActual = i;
     bloquear();
 }
 function atras() {
     if(indiceActual > 0) {
-        if(arregloJSON.length == 1) {
+        if(subArreglo.length == 1) {
             indiceActual = 1;
         }
         let i = indiceActual-1, elementos = document.formulario;
-        Obj = JSON.parse(arregloJSON[i]);
+        Obj = JSON.parse(subArreglo[i]);
         elementos[0].value = Obj.name;
         elementos[1].value = Obj.apellido;
-        elementos[2].value = Obj.seleccion;
-        elementos[3].value = Obj.rdb1;
-        elementos[4].value = Obj.rdb2;
-        elementos[5].value = Obj.chb;
+        elementos[2].selectedIndex = Obj.seleccion;
+        elementos[3].checked = Obj.rdb1;
+        elementos[4].checked = Obj.rdb2;
+        elementos[5].checked = Obj.chb;
         indiceActual--;
     } else {
         alert("No hay elementos atras!");
@@ -113,15 +114,15 @@ function atras() {
 
 }
 function sig() {
-    if(indiceActual < arregloJSON.length-1) {
+    if(indiceActual < subArreglo.length-1) {
         let i = indiceActual+1, elementos = document.formulario;
-        Obj = JSON.parse(arregloJSON[i]);
+        Obj = JSON.parse(subArreglo[i]);
         elementos[0].value = Obj.name;
         elementos[1].value = Obj.apellido;
-        elementos[2].value = Obj.seleccion;
-        elementos[3].value = Obj.rdb1;
-        elementos[4].value = Obj.rdb2;
-        elementos[5].value = Obj.chb;
+        elementos[2].selectedIndex = Obj.seleccion;
+        elementos[3].checked = Obj.rdb1;
+        elementos[4].checked = Obj.rdb2;
+        elementos[5].checked = Obj.chb;
         indiceActual++;
     } else {
         alert("No hay elementos adelante!");
@@ -179,25 +180,35 @@ function datosCorrectos(formulario) {
     return bool;
 }
 function filtrar() {
-    let busqueda = parseInt(document.getElementById("buscar").value);
-    let i = busqueda, elementos = document.formulario;
-    let Obj;
-    if(i == NaN) {
-        alert("Error elemento no numerico!");
+    let busqueda = document.getElementById("buscar").value, temp = {};
+    let i = busqueda, elementos = document.formulario, encontrado = 0;
+    let Obj, Obj2;
+    if(busqueda == "") {
+        subArreglo = [...arregloJSON];
     }
-    if(i > arregloJSON.length-1 || i < 0) {
-        alert("Error fuera de rango!");
+    if(busqueda != "") {
+        for (let j = 0; j < arregloJSON.length; j++) {
+            Obj2 = JSON.parse(arregloJSON[j]);
+            if(busqueda == Obj2.name || busqueda == Obj2.apellido) {
+                encontrado++;
+                if(encontrado == 1) {
+                    subArreglo = [];
+                }
+                temp.name = Obj2.name;
+                temp.apellido = Obj2.apellido;
+                temp.seleccion = Obj2.seleccion;
+                temp.rdb1 = Obj2.rdb1;
+                temp.rdb2 = Obj2.rdb2;
+                temp.chb = Obj2.chb; 
+                subArreglo.push(JSON.stringify(temp));
+                encontrado++;
+            }
+        }
     }
-    if(i != NaN && i <= arregloJSON.length-1 && i >= 0) {
-        Obj = JSON.parse(arregloJSON[i]);
-        elementos[0].value = Obj.name;
-        elementos[1].value = Obj.apellido;
-        elementos[2].value = Obj.seleccion;
-        elementos[3].value = Obj.rdb1;
-        elementos[4].value = Obj.rdb2;
-        elementos[5].value = Obj.chb;
-        indiceActual = i;
-        bloquear();
+    if(encontrado > 0) {
+        inicio();
     }
+
+    subArreglo.forEach(data => console.log(data));
  
 }
