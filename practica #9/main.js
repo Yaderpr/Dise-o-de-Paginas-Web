@@ -19,20 +19,48 @@ function nuevo() {
     limpiar();
 }
 function eliminar() {
-    let i = indiceActual;
-    if(indiceActual > 0) {
-        if(document.formulario[0].disabled == true) {
-            arregloJSON.splice(i, 1);
+    let i = indiceActual, nombre, apellido, Obj, count = 0;
+    if(arregloJSON.length == subArreglo.length) {
+        if(indiceActual > 0) {
+            if(document.formulario[0].disabled == true) {
+                arregloJSON.splice(i, 1);
+            }
+            indiceActual--;
+        } else {
+            if(document.formulario[0].disabled == true) {
+                arregloJSON.splice(i, 1);
+            }
+            indiceActual = 0;
+            nuevo();
         }
-        indiceActual--;
+        subArreglo = [...arregloJSON];
+        cancelar();
     } else {
-        if(document.formulario[0].disabled == true) {
-            arregloJSON.splice(i, 1);
+        nombre = (JSON.parse(subArreglo[i])).name, apellido = (JSON.parse(subArreglo[i])).apellido;
+        for(let j = 0; j < arregloJSON.length; j++) {
+            Obj = JSON.parse(arregloJSON[j]);
+            if(nombre == Obj.name || Obj.apellido == apellido) {
+                count++;
+            }
+            if(count == i) {
+                arregloJSON.splice(j, 1);
+                break;
+            }
         }
-        indiceActual = 0;
-        nuevo();
+        if(indiceActual > 0) {
+            if(document.formulario[0].disabled == true) {
+                arregloJSON.splice(i, 1);
+            }
+            indiceActual--;
+        } else {
+            if(document.formulario[0].disabled == true) {
+                arregloJSON.splice(i, 1);
+            }
+            indiceActual = 0;
+            nuevo();
+        }
+        cancelar();
     }
-    cancelar();
 }
 function limpiar() {
     let elementos = document.formulario;
