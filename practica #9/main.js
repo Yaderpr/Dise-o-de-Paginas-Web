@@ -206,9 +206,11 @@ function filtrar() {
         }
     }
     if(encontrado > 0) {
+        alert("Encontrado, datos que coinciden seleccionados");
+        inicio();
+    } else {
+        alert("No encontrado, datos globales seleccionados");
         inicio();
     }
-
-    subArreglo.forEach(data => console.log(data));
  
 }
